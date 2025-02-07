@@ -1,22 +1,32 @@
-const Counter = ({ counter, handleCounterAdd, handleCounterMinus }) => {
+const Counter = ({
+  counter,
+  setCounter,
+  handleCounterAdd,
+  handleCounterMinus,
+}) => {
   return (
-    <div className="flex flex-row gap-3 justify-center items-center">
+    <form className="flex flex-row justify-center items-center mt-4">
       <button
         type="button"
-        className="flex justify-center items-center h-8 w-8 bg-gray-100 border-2 border-black rounded-sm"
+        className="flex justify-center items-center py-1 px-4 bg-gray-100 border-2 border-black rounded-sm text-xl font-bold"
         onClick={handleCounterMinus}
       >
         -
       </button>
-      <p className="font-bold">Counter: {counter}</p>
+      <input
+        type="text"
+        className="p-1.5 border-2 border-black"
+        value={counter}
+        onChange={(e) => setCounter(Number(e.target.value))}
+      />
       <button
         type="button"
-        className="flex justify-center items-center p-3 size-8 bg-gray-100 border-2 border-black rounded-sm"
+        className="flex justify-center items-center py-1 px-4 bg-gray-100 border-2 border-black rounded-sm text-xl font-bold"
         onClick={handleCounterAdd}
       >
         +
       </button>
-    </div>
+    </form>
   );
 };
 export default Counter;
